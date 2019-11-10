@@ -17,8 +17,9 @@ function dataReceived(data) {
 	);
 	for(key in vars) {
 		let targ = '{' + vars[key] + '}';
+		let targRegex = new RegExp(targ, 'g');
 		let dest = $(`[name = ${vars[key]}]`)[0].value;
-		output = output.replace(targ, dest);
+		output = output.replace(targRegex, dest);
 	}
 	$("#result").html(output);
 }
